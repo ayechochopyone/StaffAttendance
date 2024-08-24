@@ -14,4 +14,4 @@ class HolidayHelper {
   }
 }
 
-module.exports = HolidayHelper;
+module.exports = { HolidayHelper };

@@ -44,12 +44,12 @@ const realTimeClick = async (req, res) => {
   // ပုံမှန် ရုံးတက်ချိန်ကို သတ်မှတ်
   const standardInTime = moment(`${currentDate} 08:30`, "YYYY-MM-DD HH:mm:ss");
   // Morning Leave ရှိတဲ့ ဆရာကြီး ဆရာမကြီး များအတွက်
-  const lateThresholdTime = moment(
-    `${currentDate} 12:30`,
-    "YYYY-MM-DD HH:mm:ss"
-  );
+  // const lateThresholdTime = moment(
+  //   `${currentDate} 12:30`,
+  //   "YYYY-MM-DD HH:mm:ss"
+  // );
   // ပုံမှန် ရုံးဆင်းချိန်ကို သတ်မှတ်
-  const eveningEndTime = moment(`${currentDate} 16:30`, "YYYY-MM-DD HH:mm:ss"); // Assuming 5 PM as the end of the evening period
+  const eveningEndTime = moment(`${currentDate} 15:30`, "YYYY-MM-DD HH:mm:ss"); // Assuming 5 PM as the end of the evening period
 
   let payload = {
     in_time: null,

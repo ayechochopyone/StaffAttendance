@@ -16,7 +16,7 @@ const verifyJWT = require("./middleware/verifyJWT");
 const attendance = require("./routes/api/attendance");
 const leaveRecord = require("./routes/api/leaveRecords");
 const attendanceRequest = require("./routes/api/attendanceRequest");
-const payroll = require("./routes/api/payroll");
+//const payroll = require("./routes/api/payroll");
 const holidays = require("./routes/api/holidays");
 const profileImage = require("./routes/api/profileImage");
 const fcm = require("./routes/api/fcm");
@@ -45,7 +45,7 @@ swaggerDocs(app, PORT);
 app.use("/api/v1/login", login);
 app.use("/api/v1/refresh", handleRefresh);
 
-app.use(verifyJWT);
+//app.use(verifyJWT);
 
 // Swagger documentation
 swaggerDocs(app, PORT);
@@ -60,7 +60,7 @@ app.use("/api/v1/departments", department);
 app.use("/api/v1/leaveRecord", leaveRecord);
 app.use("/api/v1/attendanceRequest", attendanceRequest);
 app.use("/api/v1/userCount", userCount);
-app.use("/api/v1/payroll", payroll);
+//app.use("/api/v1/payroll", payroll);
 app.use("/api/v1/holidays", holidays);
 // send location data
 app.use("/api/v1/location", location);

@@ -170,7 +170,7 @@ class UserHelper {
         if (isOutTimeNull?.out_time === null) {
           try {
             const result = await Attendance.update(
-              { out_time: "16:30", early_out_time: 0 },
+              { out_time: "15:30", early_out_time: 0 },
               {
                 where: {
                   UserId: userId,

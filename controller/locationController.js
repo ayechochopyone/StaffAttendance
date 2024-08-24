@@ -1,34 +1,23 @@
-const haversine = require("haversine");
+const pointInPolygon = require("point-in-polygon");
 
-let locationRange = 1000;
-let isValid = null;
-
-// Set Range by HR
-const setlocationAuth = (req, res) => {
-  const range = req.body;
-  if (!range) return res.sendStatus(404);
-  locationRange = range;
-};
-
-// Location Auth
 const locationAuth = (req, res) => {
   const { lat, lon } = req.body;
-  if (!lat && !lon) return res.status(404).send("Lat or Lon Missing");
-  const start = {
-    latitude: lat || 16.81709781404742,
-    longitude: lon || 96.12951985255191,
-  };
 
-  const end = {
-    latitude: 16.81669722489963,
-    longitude: 96.12860150837099,
-  };
+  const polygon = [
+    [16.740806688141703, 95.64871776583965],
+    [16.742301567017652, 95.64928639412938],
+    [16.742060126893957, 95.64990330217955],
+    [16.740549834920078, 95.64937222481463],
+  ];
 
-  isValid = haversine(start, end, {
-    threshold: locationRange,
-    unit: "meter",
-  });
-  res.status(200).json({ isValid: isValid });
+  if (isNaN(lat) || isNaN(lon)) {
+    return res.status(400).json({ error: "Invalid latitude or longitude" });
+  }
+
+  const point = [lat, lon];
+
+  const isInside = pointInPolygon(point, polygon);
+  res.status(200).json({ isInside });
 };
 
 module.exports = { locationAuth };
