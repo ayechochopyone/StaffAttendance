@@ -45,7 +45,7 @@ swaggerDocs(app, PORT);
 app.use("/api/v1/login", login);
 app.use("/api/v1/refresh", handleRefresh);
 
-//app.use(verifyJWT);
+app.use(verifyJWT);
 
 // Swagger documentation
 swaggerDocs(app, PORT);
